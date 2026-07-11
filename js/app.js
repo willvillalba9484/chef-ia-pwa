@@ -466,7 +466,7 @@ ${datos.receta.replace(/\n/g,"<br>")}
 
 `;
 
-fetch("http://192.168.40.55:3000/generar-imagen",{
+fetch("https://chef-ia-pwa.onrender.com/generar-imagen",{
   method:"POST",
   headers:{
     "Content-Type":"application/json"
@@ -753,7 +753,7 @@ async function generarImagenReceta(plato, ingredientes){
 try{
 
 const respuesta = await fetch(
-"http://192.168.40.55:3000/generar-imagen",
+"https://chef-ia-pwa.onrender.com/generar-imagen",
 {
 method:"POST",
 headers:{
