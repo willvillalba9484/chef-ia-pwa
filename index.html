@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chef IA</title>
+
+<link rel="manifest" href="manifest.json">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+<div style="text-align:center; margin-bottom:20px;">
+  <img
+    src="img/logo.png"
+    alt="Chef IA"
+    style="width:180px; max-width:80%; border-radius:20px;"
+  >
+</div>
+<h1>Chef IA</h1>
+
+<p>
+Convierte tus ingredientes en recetas increíbles
+</p>
+
+
+
+<div class="card">
+
+<h3>📷 Escanear ingredientes</h3>
+
+<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+
+<label class="botonArchivo">
+📷 Cámara
+<input
+type="file"
+id="camara"
+accept="image/*"
+capture="environment"
+style="display:none;">
+</label>
+
+<label class="botonArchivo">
+🖼️ Galería
+<input
+type="file"
+id="galeria"
+accept="image/*"
+style="display:none;">
+</label>
+
+</div>
+
+
+<img 
+id="vistaImagen"
+>
+
+
+</div>
+
+
+
+<div class="card">
+
+
+<h3>🥗 Tus ingredientes</h3>
+
+
+<textarea
+
+id="ingredientes"
+
+placeholder="Ejemplo: huevos, tomate, arroz"
+
+></textarea>
+
+
+<select id="tipo">
+
+<option value="rápida">
+⚡ Rápida
+</option>
+
+
+<option value="saludable">
+🥗 Saludable
+</option>
+
+
+<option value="económica">
+💰 Económica
+</option>
+
+
+<option value="gourmet">
+👨‍🍳 Gourmet
+</option>
+
+
+</select>
+
+
+<button id="generar">
+
+🍳 Generar receta
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>👤 Mi perfil</h2>
+
+<select id="objetivo">
+
+<option value="saludable">
+🥗 Comer saludable
+</option>
+
+<option value="musculo">
+💪 Ganar músculo
+</option>
+
+<option value="economico">
+💰 Ahorrar dinero
+</option>
+
+<option value="rapido">
+⚡ Cocinar rápido
+</option>
+
+</select>
+
+
+<select id="alimentacion">
+
+<option value="normal">
+🍽️ Normal
+</option>
+
+<option value="vegetariana">
+🥦 Vegetariana
+</option>
+
+<option value="proteica">
+💪 Alta en proteína
+</option>
+
+<option value="baja_carbohidratos">
+🥑 Baja en carbohidratos
+</option>
+
+</select>
+
+
+<select id="tiempo">
+
+<option value="15 minutos">
+⏱️ 15 minutos
+</option>
+
+<option value="30 minutos">
+⏱️ 30 minutos
+</option>
+
+<option value="1 hora">
+⏱️ 1 hora
+</option>
+
+</select>
+
+
+<button id="guardarPerfil">
+💾 Guardar perfil
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+
+
+</div>
+
+
+<div id="resultado"></div>
+
+
+
+
+<div class="card">
+
+<h2>❤️ Favoritas</h2>
+
+<div id="listaFavoritos"></div>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>📜 Historial</h2>
+
+<div id="listaHistorial"></div>
+
+
+</div>
+
+
+
+</div>
+
+
+<script src="js/app.js"></script>
+
+
+</body>
+
+</html>
