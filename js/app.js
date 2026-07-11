@@ -93,7 +93,7 @@ try{
 
 const respuesta =
 await fetch(
-"http://192.168.40.55:3000/analizar-imagen",
+"https://chef-ia-pwa.onrender.com/analizar-imagen",
 {
 method:"POST",
 body:formulario
@@ -158,7 +158,7 @@ resultado.innerHTML = "📷 Analizando ingredientes...";
 try{
 
 const respuesta = await fetch(
-"http://192.168.40.55:3000/analizar-imagen",
+"https://chef-ia-pwa.onrender.com/analizar-imagen",
 {
 method:"POST",
 body:formulario
