@@ -252,7 +252,7 @@ const { prompt } = req.body;
 
 const url =
 "https://image.pollinations.ai/prompt/" +
-encodeURIComponent(prompt + ", foto realista de comida, alta calidad, plato servido");
+encodeURIComponent(prompt + ", fotografía gastronómica profesional, plato gourmet servido en mesa elegante, iluminación de estudio, estilo revista culinaria, ultra realista, detalles nítidos, textura natural de los alimentos, profundidad de campo, lente 50mm, calidad 4K");
 
 res.json({
 imagen: url

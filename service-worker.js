@@ -1,4 +1,4 @@
-const CACHE_NAME = "chefia-v1";
+const CACHE_NAME = "chefia-v2";
 
 const FILES = [
   "/",
