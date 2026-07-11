@@ -1,3 +1,4 @@
+const API = "https://chef-ia-pwa.onrender.com";
 const boton = document.getElementById("generar");
 const camara = document.getElementById("camara");
 const galeria = document.getElementById("galeria");
@@ -93,7 +94,7 @@ try{
 
 const respuesta =
 await fetch(
-"https://chef-ia-pwa.onrender.com/analizar-imagen",
+API + "/analizar-imagen",
 {
 method:"POST",
 body:formulario
@@ -158,7 +159,7 @@ resultado.innerHTML = "📷 Analizando ingredientes...";
 try{
 
 const respuesta = await fetch(
-"https://chef-ia-pwa.onrender.com/analizar-imagen",
+API + "/analizar-imagen",
 {
 method:"POST",
 body:formulario
@@ -403,7 +404,7 @@ try{
 
 const respuesta =
 await fetch(
-"https://chef-ia-pwa.onrender.com/receta",
+API + "/receta",
 {
 
 method:"POST",
@@ -466,7 +467,7 @@ ${datos.receta.replace(/\n/g,"<br>")}
 
 `;
 
-fetch("https://chef-ia-pwa.onrender.com/generar-imagen",{
+fetch(API + "/generar-imagen",{
   method:"POST",
   headers:{
     "Content-Type":"application/json"
@@ -753,7 +754,7 @@ async function generarImagenReceta(plato, ingredientes){
 try{
 
 const respuesta = await fetch(
-"https://chef-ia-pwa.onrender.com/generar-imagen",
+API + "/generar-imagen",
 {
 method:"POST",
 headers:{
