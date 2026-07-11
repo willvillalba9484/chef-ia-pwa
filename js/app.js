@@ -403,7 +403,7 @@ try{
 
 const respuesta =
 await fetch(
-"http://192.168.40.55:3000/receta",
+"https://chef-ia-pwa.onrender.com/receta",
 {
 
 method:"POST",
