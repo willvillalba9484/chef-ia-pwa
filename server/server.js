@@ -28,7 +28,7 @@ try{
 
 const {ingredientes,tipo,perfil}=req.body;
 
-const respuesta=await groq.chat.completions.create({
+const respuesta = await groq.chat.completions.create({
 
 model:"llama-3.1-8b-instant",
 
@@ -39,79 +39,39 @@ content:"Eres Chef IA, un chef profesional."
 },
 {
 role:"user",
-content:`Crea una receta ${tipo} usando:
+content:`Crea una receta ${tipo || ""} usando:
 
 ${ingredientes}
 
 Personaliza la receta según este perfil:
 
-🎯 Objetivo: ${perfil?.objetivo || "Sin preferencia"}
-🍽️ Alimentación: ${perfil?.alimentacion || "Normal"}
-⏱️ Tiempo disponible: ${perfil?.tiempo || "Sin límite"}
+Objetivo: ${perfil?.objetivo || "Sin preferencia"}
+Alimentación: ${perfil?.alimentacion || "Normal"}
+Tiempo disponible: ${perfil?.tiempo || "Sin límite"}
 
-Responde únicamente con este formato:
-
-🍽️ Nombre de la receta
-
-⏱️ Tiempo: XX minutos
-
-👥 Porciones: X
-
-🥗 Ingredientes
-
-• Ingrediente 1
-• Ingrediente 2
-• Ingrediente 3
-
-👨‍🍳 Preparación
-
-1. Primer paso.
-
-2. Segundo paso.
-
-3. Tercer paso.
-
-4. Cuarto paso.
-
-🧠 Análisis
-
-⭐ Dificultad: Fácil, Media o Avanzada
-🔥 Calorías: XXXX kcal
-💪 Proteínas: XX g
-
-Reglas obligatorias:
-
-- No uses Markdown.
-- No uses **.
-- No uses #.
-- No uses tablas.
-- No uses líneas divisorias.
-- No escribas "Paso 1:".
-- Usa únicamente la numeración 1. 2. 3. 4.
-- Deja una línea en blanco entre cada sección.
-- No agregues ningún texto antes ni después de la receta.
-
-💡 Consejo del chef:
-Escribe un consejo corto al final.`
-Disfruta esta receta y adapta los ingredientes a tu gusto.`;
-
+Responde con una receta completa con nombre, tiempo, porciones, ingredientes, preparación, análisis y consejo del chef.`
 }
+]
+
+});
 
 
 res.json({
-receta: recetaFinal
+receta: respuesta.choices[0].message.content
 });
 
 
 }catch(error){
 
 console.error("🔥 ERROR RECETA REAL:", error.response?.data || error.message || error);
-res.status(500).json({error:"Error receta"});
+
+res.status(500).json({
+error:"Error receta"
+});
 
 }
 
 });
-
 
 
 app.post("/analizar-imagen", upload.single("imagen"), async(req,res)=>{
