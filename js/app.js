@@ -432,7 +432,7 @@ await respuesta.json();
 
 
 
-guardarHistorial(datos.receta);
+guardarHistorial(datos.receta.replace(/\*+/g,""));
 
 
 
