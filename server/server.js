@@ -43,88 +43,56 @@ content:`Crea una receta ${tipo} usando:
 
 ${ingredientes}
 
-
 Personaliza la receta según este perfil:
 
-🎯 Objetivo:
-${perfil?.objetivo || "sin preferencia"}
+🎯 Objetivo: ${perfil?.objetivo || "Sin preferencia"}
+🍽️ Alimentación: ${perfil?.alimentacion || "Normal"}
+⏱️ Tiempo disponible: ${perfil?.tiempo || "Sin límite"}
 
-🍽️ Alimentación:
-${perfil?.alimentacion || "normal"}
+Responde únicamente con este formato:
 
-⏱️ Tiempo disponible:
-${perfil?.tiempo || "sin límite"}
+🍽️ Nombre de la receta
 
+⏱️ Tiempo: XX minutos
 
-Adapta los ingredientes, la preparación y los consejos según estas preferencias.
+👥 Porciones: X
 
-Usa este formato:
+🥗 Ingredientes
 
-🍽️ Nombre del plato:
+• Ingrediente 1
+• Ingrediente 2
+• Ingrediente 3
 
-⏱️ Tiempo de preparación:
+👨‍🍳 Preparación
 
-👥 Porciones:
+1. Primer paso.
 
-🥗 Ingredientes:
+2. Segundo paso.
 
-👨‍🍳 Preparación paso a paso:
+3. Tercer paso.
 
-Escribe la receta sin usar **, *, # ni ningún formato Markdown. Usa viñetas (•) para los ingredientes, numera los pasos como 1., 2., 3. y deja una línea en blanco entre cada sección para facilitar la lectura.
+4. Cuarto paso.
 
-Paso 1:
-Paso 2:
-Paso 3:
+🧠 Análisis
 
-📊 Información nutricional aproximada:
+⭐ Dificultad: Fácil, Media o Avanzada
+🔥 Calorías: XXXX kcal
+💪 Proteínas: XX g
 
-🔥 Calorías:
-💪 Proteínas:
-🍞 Carbohidratos:
-🥑 Grasas:
+Reglas obligatorias:
 
-
-🧠 Análisis de la receta:
-
-IMPORTANTE: Siempre incluye esta sección al final.
-
-⭐ Dificultad: (Fácil, Media o Avanzada)
-
-⏱️ Tiempo estimado: (Ejemplo: 30 minutos)
-
-💰 Costo aproximado: (Económico, Moderado o Alto)
-
-🥗 Tipo de alimentación: (Saludable, Proteica, Vegetariana u otro)
-
-
-💡 Consejo del chef:`
-}
-]
-
-});
-
-let recetaFinal = respuesta.choices[0].message.content
-  .replace(/\*\*/g, "")
-  .replace(/\*/g, "");
-
-
-if(!recetaFinal.includes("🧠 Análisis de la receta")){
-
-recetaFinal += `
-
-
-🧠 Análisis de la receta:
-
-⭐ Dificultad: Fácil
-
-⏱️ Tiempo estimado: 30 minutos
-
-💰 Costo aproximado: Económico
-
-🥗 Tipo de alimentación: Saludable
-
+- No uses Markdown.
+- No uses **.
+- No uses #.
+- No uses tablas.
+- No uses líneas divisorias.
+- No escribas "Paso 1:".
+- Usa únicamente la numeración 1. 2. 3. 4.
+- Deja una línea en blanco entre cada sección.
+- No agregues ningún texto antes ni después de la receta.
 
 💡 Consejo del chef:
+Escribe un consejo corto al final.`
 Disfruta esta receta y adapta los ingredientes a tu gusto.`;
 
 }
