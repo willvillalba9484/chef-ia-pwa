@@ -70,7 +70,7 @@ Usa este formato:
 
 👨‍🍳 Preparación paso a paso:
 
-Escribe cada paso separado y numerado:
+Escribe la receta sin usar **, *, # ni ningún formato Markdown. Usa viñetas (•) para los ingredientes, numera los pasos como 1., 2., 3. y deja una línea en blanco entre cada sección para facilitar la lectura.
 
 Paso 1:
 Paso 2:
