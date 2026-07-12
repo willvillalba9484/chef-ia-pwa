@@ -470,21 +470,21 @@ margin:0;
 </div>
 
 
-<div class="botones-receta">
+<div class="botones-receta" style="text-align:center!important;">
 
-<button id="guardar">
+<button id="guardar" style="text-align:center!important;">
 ❤️ Guardar favorita
 </button>
 
-<button id="compartir">
+<button id="compartir" style="text-align:center!important;">
 📤 Compartir receta
 </button>
 
-<button id="escuchar">
+<button id="escuchar" style="text-align:center!important;">
 🔊 Escuchar receta
 </button>
 
-<button id="modoCocina">
+<button id="modoCocina" style="text-align:center!important;">
 👨‍🍳 Iniciar modo cocina
 </button>
 
