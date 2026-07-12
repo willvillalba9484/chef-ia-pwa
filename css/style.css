@@ -159,3 +159,14 @@ font-weight:bold;
 .encabezado-centro p {
     text-align:center !important;
 }
+
+.botones-receta {
+    text-align:center;
+}
+
+.botones-receta button {
+    width:90%;
+    max-width:400px;
+    display:block;
+    margin:15px auto;
+}

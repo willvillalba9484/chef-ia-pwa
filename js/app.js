@@ -470,6 +470,8 @@ margin:0;
 </div>
 
 
+<div class="botones-receta">
+
 <button id="guardar">
 ❤️ Guardar favorita
 </button>
@@ -485,6 +487,8 @@ margin:0;
 <button id="modoCocina">
 👨‍🍳 Iniciar modo cocina
 </button>
+
+</div>
 
 `;
 
