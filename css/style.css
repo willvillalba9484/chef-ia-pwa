@@ -42,7 +42,7 @@ h1 {
 
 p {
 
-text-align:center;
+text-align:left;
 
 color:#555;
 
@@ -164,6 +164,7 @@ transform:scale(0.98);
 
 
 #resultado {
+    text-align:left !important;
 
 background:white;
 
@@ -197,3 +198,26 @@ border-top:1px solid #ddd;
 margin:20px 0;
 
 }
+
+#resultado,
+#resultado *,
+#resultado div,
+#resultado p,
+#resultado h2,
+#resultado h3,
+#resultado pre {
+    text-align:left !important;
+}
+
+.container {
+    text-align:left !important;
+}
+
+.container #resultado {
+    text-align:left !important;
+}
+
+.container #resultado * {
+    text-align:left !important;
+}
+

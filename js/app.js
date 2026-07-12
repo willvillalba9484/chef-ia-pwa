@@ -438,15 +438,36 @@ guardarHistorial(datos.receta);
 
 resultado.innerHTML =
 `
-<h2>🍽️ Receta</h2>
+<div style="text-align:left!important;">
+
+<h2 style="text-align:left!important;font-weight:900!important;margin:0 0 15px 0;">
+🍽️ Receta
+</h2>
 
 <div id="imagenReceta">
 🖼️ Generando imagen del plato...
 </div>
 
-<p>
-${datos.receta.replace(/\n/g,"<br>")}
-</p>
+<div style="
+text-align:left!important;
+font-size:17px;
+line-height:1.8;
+white-space:pre-wrap;
+font-family:Arial,sans-serif;
+">
+
+<pre style="
+text-align:left!important;
+white-space:pre-wrap;
+font-family:Arial,sans-serif;
+font-size:17px;
+line-height:1.8;
+margin:0;
+">${datos.receta.replace(/\*\*/g,"").trim()}</pre>
+
+</div>
+
+</div>
 
 
 <button id="guardar">
