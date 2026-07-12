@@ -140,3 +140,22 @@ font-weight:bold;
     margin-top:15px;
 }
 
+
+.logo-centro {
+    text-align:center !important;
+    display:block;
+}
+
+.logo-centro img {
+    display:block;
+    margin:0 auto;
+}
+
+.encabezado-centro {
+    text-align:center !important;
+}
+
+.encabezado-centro h1,
+.encabezado-centro p {
+    text-align:center !important;
+}
