@@ -103,7 +103,9 @@ IMPORTANTE: Siempre incluye esta sección al final.
 
 });
 
-let recetaFinal = respuesta.choices[0].message.content;
+let recetaFinal = respuesta.choices[0].message.content
+  .replace(/\*\*/g, "")
+  .replace(/\*/g, "");
 
 
 if(!recetaFinal.includes("🧠 Análisis de la receta")){
