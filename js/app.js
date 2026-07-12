@@ -463,7 +463,7 @@ font-family:Arial,sans-serif;
 font-size:17px;
 line-height:1.8;
 margin:0;
-">${datos.receta.replace(/\*\*/g,"").trim()}</pre>
+">${datos.receta.replace(/\*/g,"").trim()}</pre>
 
 </div>
 
