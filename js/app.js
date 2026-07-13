@@ -812,10 +812,12 @@ console.log("Error generando imagen:", error);
 }
 
 
+// Service Worker desactivado temporalmente
+
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./service-worker.js")
-      .then(() => console.log("✅ Service Worker registrado"))
-      .catch(err => console.error("❌ Error registrando Service Worker:", err));
+    navigator.serviceWorker.register("service-worker.js")
+      .then(() => console.log("Service Worker activo"))
+      .catch((error) => console.log("Error Service Worker:", error));
   });
 }
