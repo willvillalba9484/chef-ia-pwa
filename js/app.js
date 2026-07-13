@@ -821,3 +821,14 @@ if ("serviceWorker" in navigator) {
       .catch((error) => console.log("Error Service Worker:", error));
   });
 }
+window.addEventListener("load", () => {
+  const pantalla = document.getElementById("pantallaCarga");
+  if (pantalla) {
+    pantalla.style.opacity = "0";
+    pantalla.style.transition = "opacity 0.4s ease";
+
+    setTimeout(() => {
+      pantalla.remove();
+    }, 400);
+  }
+});
