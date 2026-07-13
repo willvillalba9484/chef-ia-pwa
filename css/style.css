@@ -174,3 +174,17 @@ font-weight:bold;
 .botones-receta button {
     text-align:center !important;
 }
+
+.botones-receta button {
+    display:block !important;
+    margin:15px auto !important;
+    text-align:center !important;
+    justify-content:center !important;
+    align-items:center !important;
+}
+
+#resultado .botones-receta,
+#resultado .botones-receta *,
+#resultado .botones-receta button {
+    text-align:center !important;
+}

@@ -30,7 +30,7 @@ const {ingredientes,tipo,perfil}=req.body;
 
 const respuesta = await groq.chat.completions.create({
 
-model:"llama-3.1-8b-instant",
+model:"meta-llama/llama-4-scout-17b-16e-instruct",
 
 messages:[
 {
@@ -49,15 +49,76 @@ Objetivo: ${perfil?.objetivo || "Sin preferencia"}
 Alimentación: ${perfil?.alimentacion || "Normal"}
 Tiempo disponible: ${perfil?.tiempo || "Sin límite"}
 
-Responde con una receta completa con nombre, tiempo, porciones, ingredientes, preparación, análisis y consejo del chef.`
+Responde con una receta completa usando este formato:
+
+🍽️ Nombre de la receta
+
+⏱️ Tiempo: XX minutos
+
+👥 Porciones: X
+
+🥗 Ingredientes
+
+• Ingrediente 1
+• Ingrediente 2
+• Ingrediente 3
+
+👨‍🍳 Preparación
+
+1. Primer paso.
+2. Segundo paso.
+3. Tercer paso.
+
+🧠 Análisis de la receta
+
+⭐ Dificultad:
+💡 Beneficios:
+👨‍🍳 Consejo del chef:
+
+🥗 Información nutricional
+
+🔥 Calorías:
+💪 Proteínas:
+🥑 Grasas:
+🌾 Carbohidratos:
+
+Es obligatorio completar todas las secciones, incluyendo "🧠 Análisis de la receta" y "🥗 Información nutricional". No omitas ninguna sección y no agregues texto antes ni después de la receta.`
 }
 ]
 
 });
 
 
+let receta = respuesta.choices[0].message.content.trim();
+
+if (!receta.includes("⭐ Dificultad:")) {
+receta += `
+
+🧠 Análisis de la receta
+
+⭐ Dificultad: Media
+💡 Beneficios: Receta equilibrada y adecuada según los ingredientes seleccionados.
+👨‍🍳 Consejo del chef: Prueba la sazón antes de servir y ajusta sal o especias al gusto.
+`;
+}
+
+if (!receta.includes("🥗 Información nutricional")) {
+receta += `
+
+🥗 Información nutricional
+
+🔥 Calorías: Aproximadas.
+💪 Proteínas: Aproximadas.
+🥑 Grasas: Aproximadas.
+🌾 Carbohidratos: Aproximados.`;
+}
+
+console.log("========== RECETA ==========");
+console.log(receta);
+console.log("============================");
+
 res.json({
-receta: respuesta.choices[0].message.content
+receta
 });
 
 
