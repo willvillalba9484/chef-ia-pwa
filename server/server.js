@@ -73,6 +73,9 @@ Responde con una receta completa usando este formato:
 
 ⭐ Dificultad:
 💡 Beneficios:
+⏱️ Tiempo estimado:
+💰 Costo aproximado:
+🥗 Tipo de alimentación:
 👨‍🍳 Consejo del chef:
 
 🥗 Información nutricional
@@ -98,6 +101,9 @@ receta += `
 
 ⭐ Dificultad: Media
 💡 Beneficios: Receta equilibrada y adecuada según los ingredientes seleccionados.
+⏱️ Tiempo estimado: 20-30 minutos
+💰 Costo aproximado: Económico
+🥗 Tipo de alimentación: Equilibrada
 👨‍🍳 Consejo del chef: Prueba la sazón antes de servir y ajusta sal o especias al gusto.
 `;
 }
