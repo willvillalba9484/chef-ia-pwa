@@ -457,6 +457,40 @@ generarImagenPlato(prompt);
 
 
 
+// -------- FORMATEAR RECETA (negrita en encabezados clave) --------
+
+function formatearReceta(texto){
+
+const encabezados = [
+"🥗 Ingredientes",
+"👨‍🍳 Preparación",
+"🧠 Análisis de la receta",
+"🥗 Información nutricional"
+];
+
+return texto
+.split("\n")
+.map(linea=>{
+
+const limpia = linea.trim();
+
+if(limpia.startsWith("🍽️")){
+return `<strong>${linea}</strong>`;
+}
+
+if(encabezados.includes(limpia)){
+return `<strong>${linea}</strong>`;
+}
+
+return linea;
+
+})
+.join("\n");
+
+}
+
+
+
 // -------- GENERAR RECETA --------
 
 
@@ -549,7 +583,7 @@ font-family:Arial,sans-serif;
 font-size:17px;
 line-height:1.8;
 margin:0;
-">${datos.receta.replace(/\*/g,"").trim()}</pre>
+">${formatearReceta(datos.receta.replace(/\*/g,"").trim())}</pre>
 
 </div>
 
