@@ -481,6 +481,8 @@ return;
 resultado.innerHTML =
 "👨‍🍳 Creando receta...";
 
+resultado.scrollIntoView({behavior:"smooth", block:"start"});
+
 
 try{
 
