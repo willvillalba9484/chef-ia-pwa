@@ -374,89 +374,6 @@ eliminarHistorial;
 
 
 
-// -------- IMAGEN DEL PLATO (con spinner, timeout y reintentar) --------
-
-
-function generarImagenPlato(prompt){
-
-const contenedor = document.getElementById("imagenReceta");
-
-if(!contenedor) return;
-
-contenedor.innerHTML = `
-<div class="spinner"></div>
-<p style="text-align:center;color:#777;">🖼️ Generando imagen del plato...</p>
-`;
-
-const controlador = new AbortController();
-
-const tiempoLimite = setTimeout(()=>{
-controlador.abort();
-}, 20000);
-
-fetch(API + "/generar-imagen",{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({ prompt }),
-signal: controlador.signal
-})
-.then(r=>r.json())
-.then(data=>{
-
-clearTimeout(tiempoLimite);
-
-const img = new Image();
-
-img.src = data.imagen;
-img.style.width = "100%";
-img.style.borderRadius = "15px";
-
-img.onload = ()=>{
-contenedor.innerHTML = "";
-contenedor.appendChild(img);
-};
-
-img.onerror = ()=>{
-mostrarErrorImagen(prompt);
-};
-
-})
-.catch(error=>{
-
-clearTimeout(tiempoLimite);
-
-console.log("ERROR IMAGEN:", error);
-
-mostrarErrorImagen(prompt);
-
-});
-
-}
-
-
-function mostrarErrorImagen(prompt){
-
-const contenedor = document.getElementById("imagenReceta");
-
-if(!contenedor) return;
-
-contenedor.innerHTML = `
-<p style="text-align:center;color:#c0392b;">❌ La imagen tardó demasiado o no se pudo generar.</p>
-<button id="reintentarImagen">🔄 Reintentar</button>
-`;
-
-document
-.getElementById("reintentarImagen")
-.addEventListener("click",()=>{
-generarImagenPlato(prompt);
-});
-
-}
-
-
-
 // -------- GENERAR RECETA --------
 
 
@@ -528,8 +445,7 @@ resultado.innerHTML =
 </h2>
 
 <div id="imagenReceta">
-<div class="spinner"></div>
-<p style="text-align:center;color:#777;">🖼️ Generando imagen del plato...</p>
+🖼️ Generando imagen del plato...
 </div>
 
 <div style="
@@ -576,7 +492,38 @@ margin:0;
 
 `;
 
-generarImagenPlato(`Foto realista del plato preparado: ${datos.receta}`);
+fetch(API + "/generar-imagen",{
+  method:"POST",
+  headers:{
+    "Content-Type":"application/json"
+  },
+  body:JSON.stringify({
+    prompt:`Foto realista del plato preparado: ${datos.receta}`
+  })
+})
+.then(r=>r.json())
+.then(data=>{
+  const img = new Image();
+
+  img.src = data.imagen;
+  img.style.width = "100%";
+  img.style.borderRadius = "15px";
+
+  img.onload = ()=>{
+    document.getElementById("imagenReceta").innerHTML = "";
+    document.getElementById("imagenReceta").appendChild(img);
+  };
+
+  img.onerror = ()=>{
+    document.getElementById("imagenReceta").innerHTML =
+      "❌ La imagen no pudo cargarse";
+  };
+})
+.catch(err=>{
+  console.log(err);
+  document.getElementById("imagenReceta").innerHTML =
+    "❌ No se pudo generar la imagen";
+});
 
 document
 .getElementById("guardar")
@@ -822,6 +769,47 @@ resultado.innerHTML =
 
 cargarFavoritos();
 cargarHistorial();
+
+
+
+
+
+async function generarImagenReceta(plato, ingredientes){
+
+try{
+
+const respuesta = await fetch(
+API + "/generar-imagen",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+plato:plato,
+ingredientes:ingredientes
+})
+}
+);
+
+const datos = await respuesta.json();
+
+console.log("Imagen generada:", datos);
+
+if(datos.imagen){
+
+document.getElementById("imagenReceta").innerHTML =
+`<img src="${datos.imagen}" style="width:100%;border-radius:15px;">`;
+
+}
+
+}catch(error){
+
+console.log("Error generando imagen:", error);
+
+}
+
+}
 
 
 // Service Worker desactivado temporalmente
