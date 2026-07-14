@@ -1,4 +1,4 @@
-const CACHE_NAME = "chef-ia-v1";
+const CACHE_NAME = "chef-ia-v2";
 
 const ARCHIVOS = [
   "./",
@@ -9,8 +9,21 @@ const ARCHIVOS = [
 ];
 
 self.addEventListener("install", (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(ARCHIVOS))
+  );
+});
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys().then((nombres) => {
+      return Promise.all(
+        nombres
+          .filter((nombre) => nombre !== CACHE_NAME)
+          .map((nombre) => caches.delete(nombre))
+      );
+    }).then(() => self.clients.claim())
   );
 });
 
