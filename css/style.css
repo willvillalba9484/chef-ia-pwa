@@ -1,6 +1,6 @@
 * {
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Manrope',Arial,sans-serif;
 }
 
 body {
@@ -30,12 +30,23 @@ width:180px;
 border-radius:20px;
 }
 
-h1 {
-font-size:38px;
+.eyebrow {
+display:block;
+font-size:12px;
 font-weight:800;
+letter-spacing:1.5px;
+text-transform:uppercase;
+color:#146356;
+margin-bottom:6px;
+}
+
+h1 {
+font-family:'Fraunces',serif;
+font-size:40px;
+font-weight:700;
 text-align:left;
-margin:15px 0;
-background:linear-gradient(90deg,#ff9800,#ff5722,#e91e63);
+margin:4px 0 6px;
+background:linear-gradient(90deg,#e67e22,#146356);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
@@ -43,6 +54,13 @@ background:linear-gradient(90deg,#ff9800,#ff5722,#e91e63);
 p {
 text-align:left;
 color:#555;
+}
+
+.encabezado-centro p {
+color:#3A2E1F;
+opacity:0.75;
+font-size:15px;
+margin-top:0;
 }
 
 .card,
