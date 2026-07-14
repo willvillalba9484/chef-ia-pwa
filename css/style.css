@@ -19,6 +19,12 @@ img {
 max-width:100%;
 }
 
+#vistaImagen {
+border-radius:18px;
+margin-top:15px;
+display:block;
+}
+
 .logo {
 width:180px;
 border-radius:20px;
