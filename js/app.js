@@ -4,6 +4,7 @@ const camara = document.getElementById("camara");
 const galeria = document.getElementById("galeria");
 const ingredientes = document.getElementById("ingredientes");
 const resultado = document.getElementById("resultado");
+const analisisImagen = document.getElementById("analisisImagen");
 
 const listaFavoritos = document.getElementById("listaFavoritos");
 const listaHistorial = document.getElementById("listaHistorial");
@@ -86,7 +87,7 @@ const formulario = new FormData();
 formulario.append("imagen",imagen);
 
 
-resultado.innerHTML =
+analisisImagen.innerHTML =
 "📷 Analizando ingredientes...";
 
 
@@ -110,7 +111,7 @@ ingredientes.value =
 datos.ingredientes;
 
 
-resultado.innerHTML =
+analisisImagen.innerHTML =
 `
 ✅ Ingredientes detectados:
 
@@ -134,9 +135,8 @@ boton.click();
 }catch(error){
 
 console.log("ERROR:", error);
-resultado.innerHTML = "ERROR: " + error.message;
 
-resultado.innerHTML =
+analisisImagen.innerHTML =
 "❌ Error analizando imagen";
 
 }
@@ -154,7 +154,7 @@ const formulario = new FormData();
 
 formulario.append("imagen", imagen);
 
-resultado.innerHTML = "📷 Analizando ingredientes...";
+analisisImagen.innerHTML = "📷 Analizando ingredientes...";
 
 try{
 
@@ -170,7 +170,7 @@ const datos = await respuesta.json();
 
 ingredientes.value = datos.ingredientes;
 
-resultado.innerHTML = `
+analisisImagen.innerHTML = `
 ✅ Ingredientes detectados:
 
 <p>${datos.ingredientes}</p>
@@ -187,7 +187,7 @@ boton.click();
 
 }catch(error){
 
-resultado.innerHTML = "❌ Error analizando imagen";
+analisisImagen.innerHTML = "❌ Error analizando imagen";
 
 }
 
