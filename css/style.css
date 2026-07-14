@@ -6,7 +6,7 @@ font-family:Arial,sans-serif;
 body {
 margin:0;
 padding:20px;
-background:#f3f4f6;
+background:#FBF3E3;
 }
 
 .container {
@@ -42,11 +42,11 @@ color:#555;
 .card,
 #resultado {
 width:100%;
-background:white;
+background:#FFFDF9;
 padding:20px;
 margin-top:20px;
 border-radius:20px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
+box-shadow:0 5px 15px rgba(58,46,31,.10);
 text-align:left;
 }
 
@@ -54,6 +54,7 @@ h2,
 h3 {
 text-align:left;
 margin-top:0;
+color:#146356;
 }
 
 textarea,
@@ -62,7 +63,8 @@ width:100%;
 padding:14px;
 margin-top:10px;
 border-radius:14px;
-border:1px solid #ddd;
+border:1px solid #EAD9AE;
+background:#F5E9CE;
 font-size:16px;
 text-align:left;
 }
@@ -192,7 +194,7 @@ font-weight:bold;
 #pantallaCarga{
   position:fixed;
   inset:0;
-  background:#F5F7FA;
+  background:#FBF3E3;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -214,8 +216,8 @@ font-weight:bold;
   width:50px;
   height:50px;
   margin:20px auto;
-  border:5px solid #ddd;
-  border-top:5px solid #ff6b35;
+  border:5px solid #EAD9AE;
+  border-top:5px solid #e67e22;
   border-radius:50%;
   animation:girar 1s linear infinite;
 }
