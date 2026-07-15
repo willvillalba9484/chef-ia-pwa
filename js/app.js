@@ -844,6 +844,8 @@ document.getElementById("tiempo").innerHTML="05:00";
 
 mostrarPaso();
 
+resultado.scrollIntoView({behavior:"smooth", block:"start"});
+
 });
 
 
