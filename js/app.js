@@ -496,7 +496,7 @@ return linea;
 function limpiarParaVoz(texto){
 
 return texto
-.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2190}-\u{21FF}\u{2B00}-\u{2BFF}\u{FE0F}\u{200D}]/gu,"")
+.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2190}-\u{21FF}\u{2300}-\u{23FF}\u{2B00}-\u{2BFF}\u{FE0F}\u{200D}]/gu,"")
 .replace(/\*/g,"")
 .replace(/\n{2,}/g,". ")
 .replace(/\n/g," ")
