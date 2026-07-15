@@ -231,7 +231,8 @@ font-weight:bold;
 }
 
 .logoCarga{
-  width:120px;
+  width:260px;
+  max-width:65%;
   border-radius:18px;
   margin-bottom:15px;
 }
