@@ -215,7 +215,7 @@ div.innerHTML=
 <hr>
 
 <p>
-${receta.replace(/\n/g,"<br>")}
+${formatearReceta(receta.replace(/\*/g,"")).replace(/\n/g,"<br>")}
 </p>
 
 <button onclick="eliminarFavorito(${index})">
@@ -302,7 +302,7 @@ div.innerHTML=
 <hr>
 
 <p>
-${receta.replace(/\n/g,"<br>")}
+${formatearReceta(receta.replace(/\*/g,"")).replace(/\n/g,"<br>")}
 </p>
 
 
