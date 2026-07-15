@@ -674,10 +674,17 @@ datos.receta
 );
 
 
+const seccionPreparacion =
+datos.receta.match(/👨‍🍳 Preparación([\s\S]*?)(🧠 Análisis de la receta|$)/);
+
+const textoPasos =
+seccionPreparacion ? seccionPreparacion[1] : datos.receta;
+
 const pasos =
-datos.receta
-.split(/Paso \d+:/)
-.filter(p=>p.trim());
+textoPasos
+.split(/\n?\d+\.\s+/)
+.map(p=>p.trim())
+.filter(p=>p.length>0);
 
 
 let pasoActual = 0;
