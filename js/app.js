@@ -206,13 +206,18 @@ JSON.parse(localStorage.getItem("favoritos")) || [];
 listaFavoritos.innerHTML="";
 
 
-favoritos.forEach((receta,index)=>{
+favoritos.forEach((item,index)=>{
+
+const receta = typeof item === "string" ? item : item.receta;
+const imagen = typeof item === "string" ? null : item.imagen;
 
 let div=document.createElement("div");
 
 div.innerHTML=
 `
 <hr>
+
+${imagen ? `<img src="${imagen}" style="width:100%;border-radius:15px;margin-bottom:10px;">` : ""}
 
 <p>
 ${formatearReceta(receta.replace(/\*/g,"")).replace(/\n/g,"<br>")}
@@ -232,13 +237,13 @@ listaFavoritos.appendChild(div);
 
 
 
-function guardarFavorito(receta){
+function guardarFavorito(receta, imagen){
 
 let favoritos =
 JSON.parse(localStorage.getItem("favoritos")) || [];
 
 
-favoritos.unshift(receta);
+favoritos.unshift({ receta, imagen: imagen || null });
 
 
 localStorage.setItem(
@@ -633,7 +638,10 @@ document
 .getElementById("guardar")
 .addEventListener("click",()=>{
 
-guardarFavorito(datos.receta);
+const imgGenerada = document.querySelector("#imagenReceta img");
+const urlImagen = imgGenerada ? imgGenerada.src : null;
+
+guardarFavorito(datos.receta, urlImagen);
 
 alert("❤️ Receta guardada");
 
