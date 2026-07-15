@@ -1,4 +1,4 @@
-const CACHE_NAME = "chef-ia-v3";
+const CACHE_NAME = "chef-ia-v4";
 
 const ARCHIVOS = [
   "./",
@@ -29,8 +29,12 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then((respuesta) => {
-      return respuesta || fetch(event.request);
-    })
+    fetch(event.request)
+      .then((respuestaRed) => {
+        const copia = respuestaRed.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copia));
+        return respuestaRed;
+      })
+      .catch(() => caches.match(event.request))
   );
 });
