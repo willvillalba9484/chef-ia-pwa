@@ -1,4 +1,4 @@
-const CACHE_NAME = "chef-ia-v2";
+const CACHE_NAME = "chef-ia-v3";
 
 const ARCHIVOS = [
   "./",
