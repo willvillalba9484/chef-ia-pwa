@@ -179,6 +179,9 @@ await groq.chat.completions.create({
 
 model:"qwen/qwen3.6-27b",
 
+reasoning_effort:"none",
+reasoning_format:"hidden",
+
 messages:[
 
 {
