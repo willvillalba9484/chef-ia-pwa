@@ -30,7 +30,7 @@ const {ingredientes,tipo,perfil}=req.body;
 
 const respuesta = await groq.chat.completions.create({
 
-model:"meta-llama/llama-4-scout-17b-16e-instruct",
+model:"openai/gpt-oss-120b",
 
 messages:[
 {
@@ -177,7 +177,7 @@ req.file.buffer.toString("base64");
 const respuesta =
 await groq.chat.completions.create({
 
-model:"meta-llama/llama-4-scout-17b-16e-instruct",
+model:"qwen/qwen3.6-27b",
 
 messages:[
 
