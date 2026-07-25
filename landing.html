@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chef IA — Cocina con lo que ya tienes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --crema:#F7F1E4;
+    --crema-2:#EFE6D2;
+    --tinta:#2B2420;
+    --verde:#2F6F6B;
+    --verde-osc:#1E4A47;
+    --naranja:#E8792B;
+    --naranja-osc:#C4611D;
+    --linea:#DCCFB2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--crema);
+    color:var(--tinta);
+    font-family:'Manrope',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;color:var(--verde-osc);letter-spacing:-0.01em;}
+  a{color:inherit;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem;color:var(--verde-osc);}
+  .logo-mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--naranja),var(--verde));display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+
+  /* HERO */
+  .hero{padding:48px 0 40px;}
+  .eyebrow{
+    display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--naranja-osc);background:#FBE7D3;padding:6px 14px;border-radius:100px;margin-bottom:18px;
+  }
+  .hero h1{font-size:clamp(2.1rem,5vw,3.2rem);font-weight:600;max-width:14ch;margin-bottom:18px;}
+  .hero p.lead{font-size:1.1rem;max-width:46ch;color:#54493E;margin-bottom:28px;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:8px;}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:12px;
+    font-family:'Manrope',sans-serif;font-weight:700;font-size:.98rem;text-decoration:none;
+    border:none;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:var(--verde-osc);color:#FBF6EA;box-shadow:0 6px 0 #14332F;}
+  .btn-primary:hover{box-shadow:0 8px 0 #14332F;transform:translateY(-2px);}
+  .btn-ghost{background:transparent;color:var(--verde-osc);border:2px solid var(--linea);}
+  .btn-ghost:hover{border-color:var(--verde-osc);}
+
+  /* SCREENS — capturas reales en marco de celular */
+  .screens{
+    margin-top:44px;padding:10px 0 4px;
+    display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+  }
+  .screens::-webkit-scrollbar{display:none;}
+  .phone{
+    flex:0 0 auto;scroll-snap-align:center;width:220px;
+    background:#1F1B17;border-radius:26px;padding:8px;
+    box-shadow:0 20px 40px -16px rgba(43,36,32,.4);
+  }
+  .phone img{
+    width:100%;display:block;border-radius:18px;
+  }
+  .phone-cap{
+    text-align:center;font-size:.82rem;color:#5C5040;margin-top:12px;font-weight:600;
+  }
+  .phone-wrap{flex:0 0 auto;width:220px;}
+
+  /* FEATURES */
+  .features{padding:64px 0;}
+  .features h2{font-size:1.9rem;margin-bottom:8px;}
+  .features > .wrap > p{color:#54493E;max-width:50ch;margin-bottom:36px;}
+  .feat-grid{display:grid;grid-template-columns:1fr;gap:18px;}
+  @media(min-width:720px){.feat-grid{grid-template-columns:1fr 1fr;}}
+  .feat-card{
+    background:var(--crema-2);border-radius:14px;padding:26px;border:1px solid var(--linea);
+  }
+  .feat-card .n{font-family:'Fraunces',serif;font-size:.8rem;color:var(--naranja-osc);font-weight:700;margin-bottom:10px;}
+  .feat-card h3{font-size:1.2rem;margin-bottom:8px;}
+  .feat-card p{color:#54493E;font-size:.95rem;}
+
+  /* INSTALL BLOCK */
+  .install{
+    background:var(--verde-osc);color:#FBF6EA;border-radius:20px;padding:44px 32px;margin:20px 0 64px;
+    text-align:center;
+  }
+  .install h2{color:#FBF6EA;font-size:1.7rem;margin-bottom:10px;}
+  .install p{color:#D9E4E2;max-width:44ch;margin:0 auto 26px;}
+  .btn-install{
+    background:var(--naranja);color:#2B1A0D;box-shadow:0 6px 0 var(--naranja-osc);font-size:1.05rem;padding:16px 30px;
+  }
+  .btn-install:hover{box-shadow:0 8px 0 var(--naranja-osc);transform:translateY(-2px);}
+  .install-note{font-size:.8rem;color:#AEC3C0;margin-top:14px;}
+
+  footer{padding:28px 0 40px;text-align:center;color:#8A7C68;font-size:.85rem;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><span class="logo-mark">🍳</span> Chef IA</div>
+  <a href="/" class="btn btn-ghost" style="padding:10px 18px;">Abrir app</a>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Recetas con lo que ya tienes en casa</span>
+    <h1>Abre la nevera. Chef IA te dice qué cocinar hoy.</h1>
+    <p class="lead">Le tomas una foto a tus ingredientes o los escribes, y la inteligencia artificial te arma una receta completa al instante — con dificultad, tiempo y costo aproximado incluidos.</p>
+    <div class="hero-actions">
+      <a href="/" class="btn btn-primary">Probar Chef IA gratis</a>
+      <a href="#instalar" class="btn btn-ghost">Instalar en el celular</a>
+    </div>
+
+    <div class="screens">
+      <div class="phone-wrap">
+        <div class="phone"><img src="img/chefia-1-detectar.png" alt="Chef IA detectando ingredientes desde una foto"></div>
+        <div class="phone-cap">1. Escaneas lo que tienes</div>
+      </div>
+      <div class="phone-wrap">
+        <div class="phone"><img src="img/chefia-3-receta.png" alt="Chef IA mostrando el plato terminado"></div>
+        <div class="phone-cap">2. Recibes el plato listo</div>
+      </div>
+      <div class="phone-wrap">
+        <div class="phone"><img src="img/chefia-2-plato.png" alt="Chef IA mostrando la preparación y el análisis de la receta"></div>
+        <div class="phone-cap">3. Con receta y análisis completo</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="features">
+  <div class="wrap">
+    <h2>Dos formas de empezar</h2>
+    <p>No necesitas saber cocinar ni tener todos los ingredientes — Chef IA se adapta a lo que sí tienes.</p>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="n">Opción 1</div>
+        <h3>Escribe lo que tienes</h3>
+        <p>Escribe los ingredientes que hay en tu cocina y recibe una receta completa, ajustada a tu objetivo y tipo de alimentación.</p>
+      </div>
+      <div class="feat-card">
+        <div class="n">Opción 2</div>
+        <h3>Toma una foto</h3>
+        <p>Fotografía tu nevera o alacena. Chef IA detecta los ingredientes automáticamente y arma la receta por ti.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="install" id="instalar">
+    <h2>Llévala en tu celular</h2>
+    <p>Chef IA se instala como una app normal, sin pasar por ninguna tienda. Un toque y queda en tu pantalla de inicio.</p>
+    <button class="btn btn-install" id="installBtn">Instalar Chef IA</button>
+    <div class="install-note" id="installNote">Si el botón no hace nada, ábrela primero y usa "Agregar a pantalla de inicio" desde el menú del navegador.</div>
+  </div>
+</div>
+
+<footer>Chef IA — hecha con Node.js, Express y un poco de hambre.</footer>
+
+<script>
+  let deferredPrompt;
+  const installBtn = document.getElementById('installBtn');
+  const installNote = document.getElementById('installNote');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+  });
+
+  installBtn.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      if (outcome === 'accepted') {
+        installNote.textContent = '¡Listo! Búscala en tu pantalla de inicio.';
+      }
+    } else {
+      // iOS Safari u otros navegadores sin soporte automático
+      installNote.textContent = 'Abre el menú de tu navegador (⋮ o compartir ⬆) y elige "Agregar a pantalla de inicio".';
+    }
+  });
+</script>
+
+</body>
+</html>
